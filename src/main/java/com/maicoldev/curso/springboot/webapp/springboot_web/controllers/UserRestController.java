@@ -1,6 +1,8 @@
 package com.maicoldev.curso.springboot.webapp.springboot_web.controllers;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,22 @@ public class UserRestController {
         userDto.setTitle("User Details");
 
         return userDto;
+    }
+
+    @GetMapping("/list")
+    public List<User> list() {
+        User maicol = new User("Maicol", "Hernández");
+        User pepe = new User("Pepe", "Hernández");
+        User jhon = new User("Jhon", "Doe");
+
+        // List<User> users = new ArrayList<>();
+        // users.add(maicol);
+        // users.add(pepe);
+        // users.add(jhon);
+
+        List<User> users = Arrays.asList(maicol, pepe, jhon);
+
+        return users;
     }
 
     @GetMapping("/details-map")
